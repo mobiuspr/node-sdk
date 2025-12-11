@@ -1,0 +1,24 @@
+{
+  "name": "mobius-sdk",
+  "version": "1.0.0",
+  "description": "Open-source MobilityPrint drivers for macOS and Arch Linux.",
+  "keywords": [
+    "printer",
+    "drivers"
+  ],
+  "homepage": "https://github.com/themirrazz/mobius-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/themirrazz/mobius-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themirrazz/mobius-sdk.git"
+  },
+  "license": "UNLICENSED",
+  "author": "themirrazz",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
