@@ -176,6 +176,20 @@ class PrintServer {
     }
 };
 
+async function findServers(port) {
+    const servers = [];
+    for(let i = 0; i <= FETCH_LIMIT+(TRY_LOCALHOST?1:0); i++) {
+        const host = i>FETCH_LIMIT?'localhost':SVC_URL+(i<1?'':`${i}`);
+        try {
+            const response = await fetch('http://' + host + ':' + (port||PORT) + '/printers?ignoreCapabilities=true');
+            servers.push(new PrintServer(host, port||PORT));
+        } catch (error) {
+            void(error);
+        }
+    };
+    return servers;
+}
+
 /** @returns {Promise<{ name: string, description: string, authMode: "per-printer" }[]>} */
 async function findPrinters_old(debug) {
     const printers = [];
@@ -183,7 +197,7 @@ async function findPrinters_old(debug) {
         const host = i>FETCH_LIMIT?'localhost':SVC_URL+(i<1?'':`${i}`) + ':' + PORT;
         try {
             const response = await fetch('http://' + host + '/printers?ignoreCapabilities=true');
-            console.log(await response.text());
+            // console.log(await response.text());
             printers.push(...await response.json());
             debug && console.log('got a response from ' + host);
         } catch (error) {
@@ -194,4 +208,4 @@ async function findPrinters_old(debug) {
     return printers;
 };
 
-module.exports = { findPrinters: findPrinters_old, PrintServer }
+module.exports = { findServers, findPrinters: findPrinters_old, PrintServer }
