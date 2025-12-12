@@ -7,6 +7,8 @@ We will be putting this on NPM once it's out of the alpha stage. You'll be able 
 ## Usage
 We're working on some docs, as it's technically still in the alpha stage. Please be patient.
 
+Update: TypeScript documentation (in `src/index.d.ts`) has now been added, VSCode should autocomplete unless its being stoopid
+
 ## How does this work?
 Mobius-SDK was reverse-engineered from the MobilityPrint extension for Chromebooks. Unlike the extension, Mobius-SDK only supports HTTP scanning, not mDNS/DNS-SD. In thoses cases, you can also scan on mDNS yourself, and then pass the hostnames or IP addresses directly to a `PrintServer` object.
 
